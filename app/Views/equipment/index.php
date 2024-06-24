@@ -5,9 +5,10 @@
 <div class="container-fluid">
 <h1> <?php echo $title; ?></h1>
    <!-- Button trigger modal -->
-   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Add
-</button>
+   <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"> -->
+    <a href="<?php echo base_url('create_data'); ?>" class="btn btn-primary"> Add</a> 
+  
+
 
 <table class="table table-hover ">
     <thead>
@@ -44,7 +45,7 @@
       </div>
       <div class="modal-body">
         <!--  form batas atas -->
-        <form action="">
+        <form action="<?php base_url('equipment/simpan') ?> " method="POST">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Nomor Lambung</label>
                 <input type="text" class="form-control" id="nolambung">
@@ -57,14 +58,14 @@
                 <label for="status" class="form-label">Status</label>
                 <input type="text" class="form-control" id="status">
             </div>
-            <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+            <button type="submit" class="btn btn-primary">Submit</button>
             </form>
       <!-- form bawah -->
       </div>
-      <div class="modal-footer">
+      <!-- <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div> -->
     </div>
   </div>
 </div>

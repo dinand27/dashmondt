@@ -5,25 +5,52 @@ use App\Models\EquipmentModel;
 
 class Equipment extends BaseController
 {
-    protected $modelUnit;
+    // protected $modelUnit;
+    // protected $table;
     
-    public function __construct()
-    {
-        $this->modelUnit= new EquipmentModel();
-    }
+    // public function __construct()
+    // {
+
+    //     $this->modelUnit= new EquipmentModel();
+    // }
 
 
     public function index()
     {
 
-        $getData = $this->modelUnit->getData();
-        $data= array(
-            'title' => 'All Data Equipment',
-            'dataUnit' => $getData,
+        // $getData = $this->modelUnit->getData();
+        // $data= array(
+        //     'title' => 'All Data Equipment',
+        //     'dataUnit' => $getData,
+        // );
+        $equipmodel = new EquipmentModel();
+        $getAlldata = $equipmodel->findAll();
+        $data = array(
+            'dataUnit' => $getAlldata,
+            'title' => 'Alldata',
         );
 
         return view('equipment/index', $data);
     }
+
+    public function create_data()
+    {
+        return view('equipment/create_data');
+
+    }
+
+
+    public function storing()
+    {
+        $equipmodel = new EquipmentModel();
+        $equipmodel->insert($this->request->getPost());
+        return redirect()->to(base_url('equipment'));
+
+    }
+
+
+
+
 
     public function detail($slug)
     {
