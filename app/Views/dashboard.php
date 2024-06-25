@@ -234,13 +234,11 @@ new Chart(ctx4, {
     <table class="table table-borderless table-sm">
       <tbody>
 
-      <?php foreach($kbdm as $d): ?>
-          <tr>
-            <td><?php echo $d['nolambung']; ?></td>
-            <td><?php echo $d['waktu']; ?></td>
-            <td><?php echo $d['status']; ?></td>
-          </tr>
-          <?php endforeach; ?>
+        <tr>
+          <td>DT-310</td>
+          <td>16:40</td>
+          <td> <button type="button" class="btn btn-warning"></button></td>
+        </tr>
        
 
       </tbody>
@@ -260,13 +258,11 @@ new Chart(ctx4, {
     <!-- table -->
     <table class="table table-borderless table-sm">
       <tbody>
-      <?php foreach($rbdm as $d): ?>
-          <tr>
-            <td><?php echo $d['nolambung']; ?></td>
-            <td><?php echo $d['waktu']; ?></td>
-            <td><?php echo $d['status']; ?></td>
-          </tr>
-          <?php endforeach; ?>
+        <tr>
+          <td>DT-342</td>
+          <td>16:40</td>
+          <td> <button type="button" class="btn btn-warning"></button></td>
+        </tr>
        
       </tbody>
     </table>  
@@ -286,13 +282,10 @@ new Chart(ctx4, {
     <table class="table table-borderless table-sm">
       <tbody>
         <tr>
-        <?php foreach($rkbm as $d): ?>
-          <tr>
-            <td><?php echo $d['nolambung']; ?></td>
-            <td><?php echo $d['waktu']; ?></td>
-            <td><?php echo $d['status']; ?></td>
-          </tr>
-          <?php endforeach; ?>
+          <td>DT-342</td>
+          <td>16:40</td>
+          <td> <button type="button" class="btn btn-warning"></button></td>
+        </tr>
       
       </tbody>
     </table>  

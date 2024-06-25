@@ -3,7 +3,7 @@
 <?= $this->include('/layout/navbar') ?>
 
 <div class="container fluid">
-    <h1>Add Data</h1>
+    <h1><?php echo $title ?></h1>
 
     <form action="<?php base_url('proses_data') ?> " method="POST">
             <div class="mb-3">
@@ -16,7 +16,23 @@
             </div>
             <div class="mb-3">
                 <label for="status" class="form-label">Status</label>
-                <input type="text" class="form-control" id="status" name="status">
+                <select name="status" class="form-control" id="status" >
+                    <option value="" > --Pilih Status--</option>
+                    <option value="Accident">Accident</option>
+                    <option value="Breakdown">Breakdown</option>
+                    <option value="NonOperat">NonOperat</option>
+                    <option value="Ready">Ready</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="id_project" class="form-label">Project</label>
+                <select name="id_project" class="form-control" id="id_project" >
+                    <option value="" > --Pilih Project--</option>
+                    <option value="1">Kontrak KBM</option>
+                    <option value="2">Kontrak BDM</option>
+                    <option value="3">Rental BDM</option>
+                    <option value="4">Rental KBM</option>
+                </select>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
             </form>
