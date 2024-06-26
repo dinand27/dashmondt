@@ -86,5 +86,6 @@
 					return del;
 					}
 				</script>
+        
 <?php echo $this->endSection(); ?>
  

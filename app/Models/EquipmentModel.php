@@ -13,5 +13,4 @@ class EquipmentModel extends Model
     protected $allowedFields = ['nolambung', 'status','waktu','driver', 'id_project'];
 
 
-
 }
