@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\EquipmentModel;
+// use App\Models\EquipmentModel;
+use App\Models\HomeModel;
 
 class Home extends BaseController
 {
@@ -21,8 +22,6 @@ class Home extends BaseController
         $query4= $db->query("SELECT * FROM equipment WHERE id_project = 4");
         $data4= $query4->getResultArray();
 
-        $query4= $db->query("SELECT * FROM equipment WHERE id_project = 4");
-        $data4= $query4->getResultArray();
 
         $query_accident = $db->query("SELECT * FROM equipment WHERE STATUS = 'Accident' AND id_project=1;");
         $data_accident= $query_accident->getResultArray();
@@ -68,7 +67,7 @@ class Home extends BaseController
         // $query8= $db->query("SELECT status, COUNT(*) as total_data from equipment where id_project=3 GROUP BY status");
         // $data8= $query8->getResultArray();
 
-        // echo count($data6);
+        // echo count($data6) ;
 
         $row= array(
             'title' => 'Tampil data Dashboard',
@@ -76,6 +75,7 @@ class Home extends BaseController
             'kbdm' => $data2,
             'rbdm' => $data3,
             'rkbm' => $data4,
+
             'data_accident' => $data_accident,
             'data_breakdown'=> $data_breakdown,
             'data_standby' => $data_standby,
@@ -95,11 +95,51 @@ class Home extends BaseController
             'data_breakdown4'=> $data_breakdown4,
             'data_standby4' => $data_standby4,
             'data_ready4' => $data_ready4,
-
+            
         );               
         
         return view('home', $row);
     }
+
+    public function tampil_project()
+    {
+        $db = \Config\Database::connect();
+
+        $query= $db->query('SELECT * FROM project');
+        $result= $query->getResult();
+        // $query2= $db->query('SELECT * FROM project where id=$param ');
+        // $result2= $query->getResult();
+
+
+        $row= array(
+            'project'=> $result,
+            // 'filter' => $result2,
+        );
+        // $queryfilter= $db->query(('SELECT * from project where id= $keyword '));
+
+        return view('tampil_project',$row);
+
+    }
+
+    public function tampil_project_detail($id)
+    {
+        $db = \Config\Database::connect();
+        $query= $db->query('SELECT * FROM project WHERE id= $id');
+        $result= $query->getResult();
+        // $query2= $db->query('SELECT * FROM project where id=$param ');
+        // $result2= $query->getResult();
+
+
+        $row= array(
+            'project'=> $result,
+            // 'filter' => $result2,
+        );
+        print_r($this->request->getVar());
+
+        // return view('tampil_project_detail');
+    }
+
+
 
 
     

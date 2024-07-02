@@ -21,8 +21,8 @@
                     <option value="<?php echo $detail->status?>" > <?php echo $detail->status?></option>
                     <option value="Accident">Accident</option>
                     <option value="Breakdown">Breakdown</option>
-                    <option value="NonOperat">NonOperat</option>
-                    <option value="Ready">Ready</option>
+                    <option value="Standby">Standby</option>
+                    <option value="Operation">Operation</option>
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>

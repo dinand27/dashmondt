@@ -4,7 +4,7 @@
 
 
 <!-- bagian wrap chart -->
-  <div class="d-flex flex-wrap">
+  <div class="container-fluid">
      
      <!--batas ROWs  -->
   <div class="row">
@@ -222,6 +222,7 @@ new Chart(ctx4, {
   
 
 
+<div class="container-fluid">
 
 
   <!--batas ROWs  -->
@@ -231,18 +232,42 @@ new Chart(ctx4, {
       <!-- batas awal cards -->
   <div class="card" >
     <div class="card-body">
+    <div>
+    <select name="filter" id="filter" onchange="getValue(this)">
+                    <option value="">Filter </option>
+                    <option value="Accident">Accident</option>
+                    <option value="Breakdown">Breakdown</option>
+                    <option value="Standby">Standby</option>
+                    <option value="Operation">Operation</option>
+                </select>
+    </div>
+    <script type="text/javascript">
+      function getValue(event)
+      {
+        var value= event.value;
+        alert(value);
+
+      }
+    </script>
       <h5 class="card-title">Kontrak KBM  <span class="text-muted small pt-2 ps-1">| 2</span></h5>
       <!-- table -->
+
       <table class="table table-borderless table-sm">
         <tbody>
           <?php foreach($kkbm as $d): ?>
           <tr>
             <td><?php echo $d['nolambung']; ?></td>
             <td><?php echo $d['waktu']; ?></td>
-            <td><?php echo $d['status']; ?></td>
+            <?php
+            $colour= 'none';
+            if($d['status'] == "Accident"){
+              $colour= 'red';
+            }
+             ?>
+            <td  style="color:<?=$colour?>;"><?php echo $d['status']; ?></td>
             <td>
-            <?php echo anchor('chart/edit/'.$d['id'],'<div class="btn btn-sm btn-success"><i class="fa fa-edit"></i></div>') ?>
-            <?php echo anchor('chart/delete/'.$d['id'],'<div class="btn btn-sm btn-danger" onclick="return fungsiHapus()"><i class="fa fa-trash"></i></div>') ?>
+            <?php echo anchor('chart/edit/'.$d['id'],'<div class="btn btn-sm btn-success"><i class="bi bi-pencil-square"></i></div>') ?>
+            
             </td>
           </tr>
           <?php endforeach; ?>
@@ -268,40 +293,17 @@ new Chart(ctx4, {
           <tr>
             <td><?php echo $d['nolambung']; ?></td>
             <td><?php echo $d['waktu']; ?></td>
-            <td><?php echo $d['status']; ?></td>
+            <?php
+            $colour= 'none';
+            if($d['status'] == "Accident"){
+              $colour= 'red';
+            }
+             ?>
+            <td  style="color:<?=$colour?>;"><?php echo $d['status']; ?></td>
+
             <td>
-            <?php echo anchor('chart/edit/'.$d['id'],'<div class="btn btn-sm btn-success"><i class="fa fa-edit"></i></div>') ?>
-            <?php echo anchor('chart/delete/'.$d['id'],'<div class="btn btn-sm btn-danger" onclick="return fungsiHapus()"><i class="fa fa-trash"></i></div>') ?>
-            </td>
-          </tr>
-          <?php endforeach; ?>
-         
-        </tbody>
-    </table>  
-
-  </div>
-</div>
-<!-- batas end cards -->
-  </div> 
-<!-- batas ROW -->
-
-<div class="col-md-3 mt-5">
-    <!-- batas awal cards -->
-<div class="card" >
-  <div class="card-body">
-    <h5 class="card-title">Rental KBM</h5>
-    <!-- table -->
-    <table class="table table-borderless table-sm">
-    <tbody>
-          <?php foreach($rbdm as $d): ?>
-          <tr>
-            <td><?php echo $d['nolambung']; ?></td>
-            <td><?php echo $d['waktu']; ?></td>
-            <td><?php echo $d['status']; ?></td>
-            <td>
-            <?php echo anchor('chart/edit/'.$d['id'],'<div class="btn btn-sm btn-success"><i class="fa fa-edit"></i></div>') ?>
-            <?php echo anchor('chart/delete/'.$d['id'],'<div class="btn btn-sm btn-danger" onclick="return fungsiHapus()"><i class="fa fa-trash"></i></div>') ?>
-
+            <?php echo anchor('chart/edit/'.$d['id'],'<div class="btn btn-sm btn-success"><i class="bi bi-pencil-square"></i></div>') ?>
+            
             </td>
           </tr>
           <?php endforeach; ?>
@@ -322,16 +324,22 @@ new Chart(ctx4, {
     <h5 class="card-title">Rental BDM</h5>
     <!-- table -->
     <table class="table table-borderless table-sm">
-      <tbody>
-      <tbody>
-          <?php foreach($rkbm as $d): ?>
+    <tbody>
+          <?php foreach($rbdm as $d): ?>
           <tr>
             <td><?php echo $d['nolambung']; ?></td>
             <td><?php echo $d['waktu']; ?></td>
-            <td><?php echo $d['status']; ?></td>
+            <?php
+            $colour= 'none';
+            if($d['status'] == "Accident"){
+              $colour= 'red';
+            }
+             ?>
+            <td  style="color:<?=$colour?>;"><?php echo $d['status']; ?></td>
+
             <td>
-            <?php echo anchor('chart/edit/'.$d['id'],'<div class="btn btn-sm btn-success"><i class="fa fa-edit"></i></div>') ?>
-            <?php echo anchor('chart/delete/'.$d['id'],'<div class="btn btn-sm btn-danger" onclick="return fungsiHapus()"><i class="fa fa-trash"></i></div>') ?>
+            <?php echo anchor('chart/edit/'.$d['id'],'<div class="btn btn-sm btn-success"><i class="bi bi-pencil-square"></i></div>') ?>
+            
             </td>
           </tr>
           <?php endforeach; ?>
@@ -344,6 +352,44 @@ new Chart(ctx4, {
 <!-- batas end cards -->
   </div> 
 <!-- batas ROW -->
+
+<div class="col-md-3 mt-5">
+    <!-- batas awal cards -->
+<div class="card" >
+  <div class="card-body">
+    <h5 class="card-title">Rental KBM</h5>
+    <!-- table -->
+    <table class="table table-borderless table-sm">
+      <tbody>
+      <tbody>
+          <?php foreach($rkbm as $d): ?>
+          <tr>
+            <td><?php echo $d['nolambung']; ?></td>
+            <td><?php echo $d['waktu']; ?></td>
+
+            <?php
+            $colour= 'none';
+            if($d['status'] == "Accident"){
+              $colour= 'red';
+            }
+             ?>
+            <td  style="color:<?=$colour?>; cursor:pointer;"><?php echo $d['status']; ?></td>
+            <td>
+            <?php echo anchor('chart/edit/'.$d['id'],'<div class="btn btn-sm btn-success"><i class="bi bi-pencil-square"></i></div>') ?>
+                        </td>
+          </tr>
+          <?php endforeach; ?>
+         
+        </tbody>
+    </table>  
+
+  </div>
+</div>
+<!-- batas end cards -->
+  </div> 
+<!-- batas ROW -->
+
+</div>
 
 </div>
 

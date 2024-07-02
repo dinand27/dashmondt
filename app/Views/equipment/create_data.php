@@ -20,8 +20,8 @@
                     <option value="" > --Pilih Status--</option>
                     <option value="Accident">Accident</option>
                     <option value="Breakdown">Breakdown</option>
-                    <option value="NonOperat">NonOperat</option>
-                    <option value="Ready">Ready</option>
+                    <option value="Standby">Standby</option>
+                    <option value="Operation">Operation</option>
                 </select>
             </div>
             <div class="mb-3">

@@ -2,17 +2,23 @@
 
 use CodeIgniter\Router\RouteCollection;
 
-/**
+/***
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Home::index');
-$routes->get('/home', 'Home::home');
 $routes->get('/home', 'Home::home');
 $routes->get('/login', 'Login::index');
 $routes->get('/equipment', 'Equipment::index');
 $routes->get('/tampildata', 'Equipment::data_dashboard');
 $routes->get('/chart', 'Equipment::jum_data_status');
 
+$routes->get('/getparam', 'Param::index');
+$routes->get('/tampilsemua', 'Param::tampilAll');
+$routes->get('/tampil_id', 'Param::tampil_id');
+
+// $routes->get('/tampil_project', 'Home::tampil_project');
+// $routes->get('/tampil_project_detail/(:any)', 'Home::tampil_project_detail/$1');
+// 
 $routes->get('/project', 'Home::project');
 
 $routes->get('/create_data', 'Equipment::create_data');
