@@ -24,7 +24,6 @@
     const ctx = document.getElementById('chartMKBM');
   
     new Chart(ctx, {
-      plugins: [ChartDataLabels],
       type: 'bar',
       data: {
         labels: ['Operation', 'Standby', 'Breakdown','Accident'],
@@ -74,7 +73,6 @@
   const ctx2 = document.getElementById('chartMBDM');
 
   new Chart(ctx2, {
-    plugins: [ChartDataLabels],
     type: 'bar',
     data: {
       labels: ['Operation', 'Standby', 'Breakdown','Accident'],
@@ -124,7 +122,6 @@
 const ctx3 = document.getElementById('chartRBDM');
 
 new Chart(ctx3, {
-  plugins: [ChartDataLabels],
   type: 'bar',
   data: {
     labels: ['Operation', 'Standby', 'Breakdown','Accident'],
@@ -174,7 +171,6 @@ new Chart(ctx3, {
 const ctx4 = document.getElementById('chartRKBM');
 
 new Chart(ctx4, {
-  plugins: [ChartDataLabels],
   type: 'bar',
   data: {
     labels: ['Operation', 'Standby', 'Breakdown','Accident'],
@@ -223,8 +219,12 @@ new Chart(ctx4, {
 
    </div>
 
+  
+
 
 <div class="container-fluid">
+
+
   <!--batas ROWs  -->
 <div class="row">
     <!-- end rows -->
@@ -232,7 +232,24 @@ new Chart(ctx4, {
       <!-- batas awal cards -->
   <div class="card" >
     <div class="card-body">
-       <h5 class="card-title">Kontrak KBM  <span class="text-muted small pt-2 ps-1">|   </span></h5>
+    <div>
+    <select name="filter" id="filter" onchange="getValue(this)">
+                    <option value="">Filter </option>
+                    <option value="Accident">Accident</option>
+                    <option value="Breakdown">Breakdown</option>
+                    <option value="Standby">Standby</option>
+                    <option value="Operation">Operation</option>
+                </select>
+    </div>
+    <script type="text/javascript">
+      function getValue(event)
+      {
+        var value= event.value;
+        alert(value);
+
+      }
+    </script>
+      <h5 class="card-title">Kontrak KBM  <span class="text-muted small pt-2 ps-1">| 2</span></h5>
       <!-- table -->
 
       <table class="table table-borderless table-sm">
@@ -245,10 +262,6 @@ new Chart(ctx4, {
             $colour= 'none';
             if($d['status'] == "Accident"){
               $colour= 'red';
-            }else if($d['status'] == "Breakdown"){
-              $colour= 'Orange';
-            }else if($d['status'] == "Operation"){
-              $colour= 'green';
             }
              ?>
             <td  style="color:<?=$colour?>;"><?php echo $d['status']; ?></td>
@@ -284,10 +297,6 @@ new Chart(ctx4, {
             $colour= 'none';
             if($d['status'] == "Accident"){
               $colour= 'red';
-            }else if($d['status'] == "Breakdown"){
-              $colour= 'Orange';
-            }else if($d['status'] == "Operation"){
-              $colour= 'green';
             }
              ?>
             <td  style="color:<?=$colour?>;"><?php echo $d['status']; ?></td>
@@ -324,10 +333,6 @@ new Chart(ctx4, {
             $colour= 'none';
             if($d['status'] == "Accident"){
               $colour= 'red';
-            }else if($d['status'] == "Breakdown"){
-              $colour= 'Orange';
-            }else if($d['status'] == "Operation"){
-              $colour= 'green';
             }
              ?>
             <td  style="color:<?=$colour?>;"><?php echo $d['status']; ?></td>
@@ -366,10 +371,6 @@ new Chart(ctx4, {
             $colour= 'none';
             if($d['status'] == "Accident"){
               $colour= 'red';
-            }else if($d['status'] == "Breakdown"){
-              $colour= 'Orange';
-            }else if($d['status'] == "Operation"){
-              $colour= 'green';
             }
              ?>
             <td  style="color:<?=$colour?>; cursor:pointer;"><?php echo $d['status']; ?></td>

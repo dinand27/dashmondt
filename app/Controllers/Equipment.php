@@ -232,6 +232,13 @@ class Equipment extends BaseController
         return redirect()->to(base_url('/'));
     }
 
+    public function init_data()
+    {
+        $db = \Config\Database::connect();
+       
+        $db->query("UPDATE equipment SET waktu='00.00' ");
+        return redirect()->to(base_url('/equipment'));
+    }
     
 
 }

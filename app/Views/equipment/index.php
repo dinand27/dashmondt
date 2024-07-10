@@ -7,7 +7,7 @@
    <!-- Button trigger modal -->
    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"> -->
     <a href="<?php echo base_url('create_data'); ?>" class="btn btn-primary"> Add</a> 
-  
+    <a href="<?php echo base_url('init_data'); ?>" class="btn btn-danger" onclick="fungsiInit()">Init</a> 
 
 
 <table class="table table-hover ">
@@ -85,7 +85,21 @@
 					}
 					return del;
 					}
-				</script>
+
+          				function fungsiInit(){
+
+					var del=confirm("SURE FOR RESET Data?");
+					if (del==true){
+					alert ("Data di Reset")
+					}else{
+						alert("Batal Reset")
+					}
+					return del;
+					}
+
+
+
+</script>
         
 <?php echo $this->endSection(); ?>
  

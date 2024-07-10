@@ -41,6 +41,19 @@ class Param extends BaseController
 
     }
 
+    public function getview()
+    {
+        $uri = current_url(true);
+        $datauri= $uri->getSegment(2);
+        // $data = array(
+        //     'segment'=>$datauri
+        // );
+
+        // var_dump($datauri);
+        return view('getview');
+    }
+    
+   
 
 }
 ?>

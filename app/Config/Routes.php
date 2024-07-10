@@ -3,18 +3,31 @@
 use CodeIgniter\Router\RouteCollection;
 
 /***
- * @var RouteCollection $routes
+ * @var RouteCollection $routes 
  */
 $routes->get('/', 'Home::index');
 $routes->get('/home', 'Home::home');
-$routes->get('/login', 'Login::index');
+$routes->get('/tampildashboard', 'Home::tampilAll');
+$routes->get('/tampildashboard/filter', 'Home::tampil_id');
+
+$routes->get('/register', 'User::register');
+$routes->get('/login', 'User::login');
+
+$routes->post('/register', 'User::do_register');
+$routes->post('/login', 'User::do_login');
+
+
+
 $routes->get('/equipment', 'Equipment::index');
 $routes->get('/tampildata', 'Equipment::data_dashboard');
 $routes->get('/chart', 'Equipment::jum_data_status');
+$routes->get('/init_data', 'Equipment::init_data');
 
 $routes->get('/getparam', 'Param::index');
 $routes->get('/tampilsemua', 'Param::tampilAll');
+$routes->get('/tampilsemua/filter', 'Param::tampil_id');
 $routes->get('/tampil_id', 'Param::tampil_id');
+$routes->get('/tampil_uri/(:any)', 'Param::getview/$1');
 
 // $routes->get('/tampil_project', 'Home::tampil_project');
 // $routes->get('/tampil_project_detail/(:any)', 'Home::tampil_project_detail/$1');

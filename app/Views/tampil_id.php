@@ -6,16 +6,16 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="<?php echo base_url('tampil_id') ?>" method="get">
+    <form action="<?php echo base_url('tampilsemua/filter') ?>" method="get">
     <select name="status" id="status" onchange="this.form.submit()">
-         <option value="">Pilih Status</option>
+         <option value="Status">Pilih Status</option>
          <option value="Operation">Operation</option>
          <option value="Breakdown">Breakdown</option>
    </select>
    <!-- <input type="submit" value="Search" class="btn btn-primary"> -->
     </form>
     <div>
-    <table class="table" style="border: 1px;">
+    <table class="table" style="border: 1px;" >
             <tr>
                 <td>#</td>
                 <td>nama</td>
